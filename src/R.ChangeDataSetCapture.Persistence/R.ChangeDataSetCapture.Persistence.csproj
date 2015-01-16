@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InMemoryStore.cs" />
     <Compile Include="Model\ChangeDataSetCaptureStoreEntity.cs" />
     <Compile Include="MongoStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

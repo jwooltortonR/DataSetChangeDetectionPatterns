@@ -12,7 +12,7 @@ namespace R.ChangeDataSetCapture
             //For<IScheduler>().Use(Scheduler.Instance);
             // Default that my be overriden (using Sm TypeInterceptor) to use 
             // data store implementation selected in Scheduler Configuration
-            For<IPersistenceStore>().Use<MongoStore>();
+            //For<IPersistenceStore>().Use<MongoStore>();
         }
     }
 }

@@ -58,7 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="R.ChangeDataSetCapture.nuspec" />
+    <None Include="R.ChangeDataSetCapture.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R.ChangeDataSetCapture.ChangeDetectionApproach\R.ChangeDataSetCapture.ChangeDetectionApproach.csproj">
@@ -68,6 +70,10 @@
     <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.ChangeDataSetCapture.Interfaces.csproj">
       <Project>{22e493d6-f970-4f40-a34e-0cad549a0288}</Project>
       <Name>R.ChangeDataSetCapture.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R.ChangeDataSetCapture.Notifications\R.ChangeDataSetCapture.Notifications.csproj">
+      <Project>{20eac8ed-f6df-402a-bbf1-ff04f1195d0a}</Project>
+      <Name>R.ChangeDataSetCapture.Notifications</Name>
     </ProjectReference>
     <ProjectReference Include="..\R.ChangeDataSetCapture.Persistence\R.ChangeDataSetCapture.Persistence.csproj">
       <Project>{3ac9b110-fb82-4ffe-9f78-669ed67d6454}</Project>

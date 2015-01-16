@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Linq.Expressions;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using R.ChangeDataSetCapture.Interfaces;
+using R.ChangeDataSetCapture.Interfaces.Entities;
 using R.ChangeDataSetCapture.Persistence.Model;
 
 namespace R.ChangeDataSetCapture.Persistence
@@ -14,7 +16,7 @@ namespace R.ChangeDataSetCapture.Persistence
     /// <summary>
     /// Mongo implementation of <see cref="IPersistenceStore"/>
     /// </summary>
-    public class MongoStore : IPersistenceStore<ChangeDataSetCaptureStoreEntity>
+    public class MongoStore : IPersistenceStore
     {
         private readonly string _collectionName;
         private readonly ConcurrentDictionary<Type, MongoCollection> _collections = new ConcurrentDictionary<Type, MongoCollection>();
@@ -28,24 +30,40 @@ namespace R.ChangeDataSetCapture.Persistence
             _database = server.GetDatabase(databaseName);
         }
 
-        public ChangeDataSetCaptureStoreEntity Insert(ChangeDataSetCaptureStoreEntity docment)
+        public void Insert(string key, Guid guid)
         {
+            var document = new ChangeDataSetCaptureStoreEntity()
+                {
+                    Key = key,
+                    Hash = guid
+                };
+
             var collection = GetCollection<ChangeDataSetCaptureStoreEntity>();
-            collection.Insert(docment);
-            return docment;
+            collection.Insert(document);
+            //return document;
         }
 
-        public IQueryable<ChangeDataSetCaptureStoreEntity> SearchFor(Expression<Func<ChangeDataSetCaptureStoreEntity, bool>> predicate)
+        public IDictionary<string, Guid> FindByKey(string key)
         {
             var collection = GetCollection<ChangeDataSetCaptureStoreEntity>();
-            return collection.AsQueryable<ChangeDataSetCaptureStoreEntity>().Where(predicate);
+            var resval = collection.AsQueryable<ChangeDataSetCaptureStoreEntity>().FirstOrDefault(x => x.Key == key);
+            if (resval == null) return null;
+            var retval = new Dictionary<string, Guid> {{resval.Key, resval.Hash}};
+            return retval;
+
         }
 
-        public ChangeDataSetCaptureStoreEntity GetByKey(string key)
+        public IQueryable<IChangeDataSetCaptureStoreEntity> SearchFor(Expression<Func<IChangeDataSetCaptureStoreEntity, bool>> predicate)
         {
             var collection = GetCollection<ChangeDataSetCaptureStoreEntity>();
-            return collection.AsQueryable<ChangeDataSetCaptureStoreEntity>().FirstOrDefault(x=>x.Key == key);
+            return collection.AsQueryable<IChangeDataSetCaptureStoreEntity>().Where(predicate);
         }
+
+        //public IChangeDataSetCaptureStoreEntity FindByKey(string key)
+        //{
+        //    var collection = GetCollection<ChangeDataSetCaptureStoreEntity>();
+        //    return collection.AsQueryable<ChangeDataSetCaptureStoreEntity>().FirstOrDefault(x => x.Key == key);
+        //}
 
         private MongoCollection GetCollection<T>()
         {

@@ -21,7 +21,7 @@
     <file src="bin\Release\R.ChangeDataSetCapture.dll" target="lib\net40\R.ChangeDataSetCapture.dll" />
     <file src="bin\Release\R.ChangeDataSetCapture.Interfaces.dll" target="lib\net40\R.ChangeDataSetCapture.Interfaces.dll" />    
     <file src="bin\Release\R.ChangeDataSetCapture.ChangeDetectionApproach.dll" target="lib\net40\R.ChangeDataSetCapture.ChangeDetectionApproach.dll" />
-    <file src="bin\Release\R.ChangeDataSetCapture.Persistance.dll" target="lib\net40\R.ChangeDataSetCapture.Persistance.dll" />
+    <file src="bin\Release\R.ChangeDataSetCapture.Persistence.dll" target="lib\net40\R.ChangeDataSetCapture.Persistence.dll" />
     <file src="bin\Release\R.ChangeDataSetCapture.Notifications.dll" target="lib\net40\R.ChangeDataSetCapture.Notifications.dll" />
   </files>
 </package>

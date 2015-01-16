@@ -1,8 +1,9 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using R.ChangeDataSetCapture.ChangeDetectionApproach;
 using R.ChangeDataSetCapture.Interfaces;
 using R.ChangeDataSetCapture.Interfaces.Enums;
-using R.ChangeDataSetCapture.Persistence;
+using StructureMap;
 
 namespace R.ChangeDataSetCapture
 {
@@ -17,44 +18,43 @@ namespace R.ChangeDataSetCapture
 
         public void Process(DataSet dataSet)
         {            
-            //Load Persitance Store
-            var persistenceStore = LoadPersistanceStore();
+            ////Load Persitance store from container
+            var whatIHave = ObjectFactory.Container.WhatDoIHave();
 
-            //Load ApproachType
-            var apprachType = LoadApproachType();
+            //var persistanceStoreCollectionName = "TestCollection";
+         
+            var keyColumnName = Configuration.KeyColumnName;
+            var hashColumnsList = Configuration.HashColumnList;
+            var persistenceStore = Configuration.PersistanceStore;
+            var notifier = Configuration.Notifier;
 
-            //Create 
-
-
-        }
-
-        public IPersistenceStore LoadPersistanceStore()
-        {
-            IPersistenceStore retval = null;
-
-            switch (Configuration.PersistanceStoreType)
-            {
-                case PersistanceStoreType.Mongo:
-                    retval = new MongoStore(Configuration.ConnectionString);
-                    break;
-                case PersistanceStoreType.InMemory:
-                    retval = new InMemoryStore();
-                    break;
-            }
-            return retval;
-        }
-
-        public IChangeDetectionApproach LoadApproachType()
-        {
             IChangeDetectionApproach retval = null;
 
             switch (Configuration.ChangeDetectionApproachType)
             {
                 case ChangeDetectionApproachType.BruteForce:
-                    retval = new BruteForceApproach();
+                    retval = new BruteForceColumHash(persistenceStore, notifier, keyColumnName, hashColumnsList);
                     break;
             }
-            return retval;
+
+            if (retval != null)
+            {
+            retval.Process(dataSet.Tables[0]);    
+            }            
         }
+ 
+
+        //public IChangeDetectionApproach LoadApproachType()
+        //{
+        //    IChangeDetectionApproach retval = null;
+
+        //    switch (Configuration.ChangeDetectionApproachType)
+        //    {
+        //        case ChangeDetectionApproachType.BruteForce:
+        //            retval = new BruteForceColumHash()
+        //            break;
+        //    }
+        //    return retval;
+        //}
     }
 }

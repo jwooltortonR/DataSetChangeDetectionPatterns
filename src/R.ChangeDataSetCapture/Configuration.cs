@@ -1,4 +1,5 @@
-﻿using R.ChangeDataSetCapture.Interfaces;
+﻿using System.Collections.Generic;
+using R.ChangeDataSetCapture.Interfaces;
 using R.ChangeDataSetCapture.Interfaces.Enums;
 
 namespace R.ChangeDataSetCapture
@@ -6,13 +7,14 @@ namespace R.ChangeDataSetCapture
     public class Configuration : IConfiguration
     {
         public Configuration()
-        {
-            PersistanceStoreType = PersistanceStoreType.Mongo;
+        {            
             ChangeDetectionApproachType = ChangeDetectionApproachType.BruteForce;            
         }
 
-        public PersistanceStoreType PersistanceStoreType { get; set; }
+        public IPersistenceStore PersistanceStore { get; set; }
         public ChangeDetectionApproachType ChangeDetectionApproachType { get; set; }
-        public string ConnectionString { get; set; }
+        public string KeyColumnName { get; set; }
+        public IList<string> HashColumnList { get; set; }
+        public INotifier Notifier { get; set; }        
     }
 }

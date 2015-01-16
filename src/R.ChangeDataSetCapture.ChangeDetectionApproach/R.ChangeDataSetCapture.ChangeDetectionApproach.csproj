@@ -39,9 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BruteForceApproach.cs" />
+    <Compile Include="BruteForceColumHash.cs" />
+    <Compile Include="INotificationMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveDateModifiedDateApporach.cs" />
+    <Compile Include="SaveDateModifiedDate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.ChangeDataSetCapture.Interfaces.csproj">
