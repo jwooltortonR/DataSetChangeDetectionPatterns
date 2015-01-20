@@ -27,5 +27,10 @@ namespace R.ChangeDataSetCapture.Notifications
         {
             _log.Info("Cancel");
         }
+
+        public void NoChange(DataRow dataRow)
+        {
+            _log.Info("No Change");
+        }
     }
 }

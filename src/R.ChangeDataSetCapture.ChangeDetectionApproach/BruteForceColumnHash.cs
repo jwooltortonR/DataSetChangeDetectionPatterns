@@ -6,7 +6,7 @@ using R.ChangeDataSetCapture.Interfaces;
 
 namespace R.ChangeDataSetCapture.ChangeDetectionApproach
 {
-    public class BruteForceColumHash : IChangeDetectionApproach
+    public class BruteForceColumnHash : IChangeDetectionApproach
     {
         private readonly IPersistenceStore _persistenceStore;
         private readonly INotifier _notifier;
@@ -14,7 +14,7 @@ namespace R.ChangeDataSetCapture.ChangeDetectionApproach
         private readonly string _keyColumnName;
         private readonly IList<string> _changeColumns;
 
-        public BruteForceColumHash(IPersistenceStore persistenceStore, 
+        public BruteForceColumnHash(IPersistenceStore persistenceStore, 
                                    INotifier notifier,
                                    string keyColumnName, 
                                    IList<string> changeColumns)
@@ -46,8 +46,12 @@ namespace R.ChangeDataSetCapture.ChangeDetectionApproach
                 if (resval.FirstOrDefault().Value != hash)
                 {
                     _notifier.Amend(dataRow);
-                    
+                    _persistenceStore.Update(key, hash);
                     continue;
+                }
+                else
+                {
+                    _notifier.NoChange(dataRow);
                 }
 
                 //Not sure on cancel yet.
@@ -56,14 +60,14 @@ namespace R.ChangeDataSetCapture.ChangeDetectionApproach
             return true;
         }
 
-        internal Guid GetHash(IList<string> columns, DataRow dataRow)
+        internal string GetHash(IList<string> columns, DataRow dataRow)
         {
             string s = "";
             foreach (var column in columns)
             {
                 s += dataRow[column].ToString();
-            }            
-            return new Guid(s);
+            }
+            return s.GetHashCode().ToString();
         }
     }
 }

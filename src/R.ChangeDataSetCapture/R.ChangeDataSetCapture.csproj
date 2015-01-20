@@ -32,13 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging">
-      <HintPath>..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
@@ -71,13 +64,9 @@
       <Project>{22e493d6-f970-4f40-a34e-0cad549a0288}</Project>
       <Name>R.ChangeDataSetCapture.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\R.ChangeDataSetCapture.Notifications\R.ChangeDataSetCapture.Notifications.csproj">
+    <ProjectReference Include="..\R.ChangeDataSetCapture.Notifications\R.ChangeDataSetCapture.NotificationStrategy.csproj">
       <Project>{20eac8ed-f6df-402a-bbf1-ff04f1195d0a}</Project>
-      <Name>R.ChangeDataSetCapture.Notifications</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\R.ChangeDataSetCapture.Persistence\R.ChangeDataSetCapture.Persistence.csproj">
-      <Project>{3ac9b110-fb82-4ffe-9f78-669ed67d6454}</Project>
-      <Name>R.ChangeDataSetCapture.Persistence</Name>
+      <Name>R.ChangeDataSetCapture.NotificationStrategy</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

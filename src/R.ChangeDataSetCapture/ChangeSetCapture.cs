@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using R.ChangeDataSetCapture.ChangeDetectionApproach;
 using R.ChangeDataSetCapture.Interfaces;
 using R.ChangeDataSetCapture.Interfaces.Enums;
@@ -33,7 +32,7 @@ namespace R.ChangeDataSetCapture
             switch (Configuration.ChangeDetectionApproachType)
             {
                 case ChangeDetectionApproachType.BruteForce:
-                    retval = new BruteForceColumHash(persistenceStore, notifier, keyColumnName, hashColumnsList);
+                    retval = new BruteForceColumnHash(persistenceStore, notifier, keyColumnName, hashColumnsList);
                     break;
             }
 
@@ -42,19 +41,6 @@ namespace R.ChangeDataSetCapture
             retval.Process(dataSet.Tables[0]);    
             }            
         }
- 
-
-        //public IChangeDetectionApproach LoadApproachType()
-        //{
-        //    IChangeDetectionApproach retval = null;
-
-        //    switch (Configuration.ChangeDetectionApproachType)
-        //    {
-        //        case ChangeDetectionApproachType.BruteForce:
-        //            retval = new BruteForceColumHash()
-        //            break;
-        //    }
-        //    return retval;
-        //}
+   
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("R.ChangeDataSetCapture.Notifications")]
+[assembly: AssemblyTitle("R.ChangeDataSetCapture.NotificationStrategy")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("R.ChangeDataSetCapture.Notifications")]
+[assembly: AssemblyProduct("R.ChangeDataSetCapture.NotificationStrategy")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

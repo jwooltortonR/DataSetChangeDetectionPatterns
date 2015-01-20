@@ -42,13 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ChangeDetectionApproachType.cs" />
-    <Compile Include="Entities\IChangeDataSetCaptureStoreEntity.cs" />
-    <Compile Include="Enums\NotifierType.cs" />
     <Compile Include="IChangeDetectionApproach.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="INotifier.cs" />
     <Compile Include="IPersistenceStore.cs" />
-    <Compile Include="Enums\PersistanceStoreType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

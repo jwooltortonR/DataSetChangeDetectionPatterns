@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BruteForceColumnHashTests.cs" />
     <Compile Include="ChangeDataSetCaptureTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\R.ChangeDataSetCapture.ChangeDetectionApproach\R.ChangeDataSetCapture.ChangeDetectionApproach.csproj">
+      <Project>{0a58b78b-5782-4fef-b652-66288531c23b}</Project>
+      <Name>R.ChangeDataSetCapture.ChangeDetectionApproach</Name>
+    </ProjectReference>
     <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.ChangeDataSetCapture.Interfaces.csproj">
       <Project>{22e493d6-f970-4f40-a34e-0cad549a0288}</Project>
       <Name>R.ChangeDataSetCapture.Interfaces</Name>

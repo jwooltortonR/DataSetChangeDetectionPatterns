@@ -1,6 +1,4 @@
-﻿using R.ChangeDataSetCapture.Interfaces;
-using R.ChangeDataSetCapture.Persistence;
-using StructureMap.Configuration.DSL;
+﻿using StructureMap.Configuration.DSL;
 
 namespace R.ChangeDataSetCapture
 {

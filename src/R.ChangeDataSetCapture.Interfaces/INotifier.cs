@@ -7,5 +7,6 @@ namespace R.ChangeDataSetCapture.Interfaces
         void Insert(DataRow dataRow);
         void Amend(DataRow dataRow);
         void Cancel(DataRow dataRow);
+        void NoChange(DataRow dataRow);
     }
 }

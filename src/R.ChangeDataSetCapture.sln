@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture", "R.ChangeDataSetCapture\R.ChangeDataSetCapture.csproj", "{D5460EE3-35EE-4D10-B4C6-242D5A1A8D7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.Persistence", "R.ChangeDataSetCapture.Persistence\R.ChangeDataSetCapture.Persistence.csproj", "{3AC9B110-FB82-4FFE-9F78-669ED67D6454}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.Interfaces", "R.ChangeDataSetCapture.Interfaces\R.ChangeDataSetCapture.Interfaces.csproj", "{22E493D6-F970-4F40-A34E-0CAD549A0288}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4E5D9EF0-C52F-4A8A-B84E-FC47057A225C}"
@@ -22,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.IntegrationTests", "R.ChangeDataSetCapture.IntegrationTests\R.ChangeDataSetCapture.IntegrationTests.csproj", "{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.Notifications", "R.ChangeDataSetCapture.Notifications\R.ChangeDataSetCapture.Notifications.csproj", "{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.NotificationStrategy", "R.ChangeDataSetCapture.Notifications\R.ChangeDataSetCapture.NotificationStrategy.csproj", "{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +32,6 @@ Global
 		{D5460EE3-35EE-4D10-B4C6-242D5A1A8D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5460EE3-35EE-4D10-B4C6-242D5A1A8D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5460EE3-35EE-4D10-B4C6-242D5A1A8D7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AC9B110-FB82-4FFE-9F78-669ED67D6454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AC9B110-FB82-4FFE-9F78-669ED67D6454}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AC9B110-FB82-4FFE-9F78-669ED67D6454}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AC9B110-FB82-4FFE-9F78-669ED67D6454}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22E493D6-F970-4F40-A34E-0CAD549A0288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22E493D6-F970-4F40-A34E-0CAD549A0288}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E493D6-F970-4F40-A34E-0CAD549A0288}.Release|Any CPU.ActiveCfg = Release|Any CPU
