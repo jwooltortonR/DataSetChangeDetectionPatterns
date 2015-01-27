@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Data;
 using Moq;
-using R.ChangeDataSetCapture.ChangeDetectionApproach;
-using R.ChangeDataSetCapture.Interfaces;
+using R.DataSetChangeDetection.Strategies.Contracts;
+using R.DataSetChangeDetection.Strategies.Entities;
+using R.DataSetChangeDetection.Strategies.Interfaces;
 using Xunit;
 
-namespace R.ChangeDataSetCapture.UnitTests
+namespace R.DataSetChangeDetection.Strategies.UnitTests.ApproachTests
 {
     public class BruteForceColumnHashTests
     {
-        private Mock<IPersistenceStore> _mockPersistenceStore;
-        private Mock<INotifier> _mockNotifier;
+        private Mock<IPersistenceStore<BruteForceEntity>> _mockPersistenceStore;
+        private Mock<INotificationStrategy> _mockNotifier;
 
         private BruteForceColumnHash _bruteForceColumnHash;
 
@@ -19,14 +20,24 @@ namespace R.ChangeDataSetCapture.UnitTests
 
         public BruteForceColumnHashTests()
         {
+            var collectionName = "Employee";
             _hashColumnList = new List<string>()
                 {
                     "Status"
                 };
 
-            _mockPersistenceStore = new Mock<IPersistenceStore>();
-            _mockNotifier= new Mock<INotifier>();
-            _bruteForceColumnHash = new BruteForceColumnHash(_mockPersistenceStore.Object, _mockNotifier.Object, "ID", _hashColumnList);
+            _mockPersistenceStore = new Mock<IPersistenceStore<BruteForceEntity>>();
+            _mockNotifier= new Mock<INotificationStrategy>();
+
+            //_bruteForceColumnHash = new BruteForceColumnHash(_mockPersistenceStore.Object, _mockNotifier.Object, "ID", _hashColumnList, collectionName);
+            var contract = new BruteForceContract()
+                {
+                    CollectionName = collectionName,
+                    ChangeColumns = _hashColumnList,
+                    KeyColumnName = "ID"
+                };
+            _bruteForceColumnHash = new BruteForceColumnHash(_mockPersistenceStore.Object, _mockNotifier.Object);
+
 
         }
 

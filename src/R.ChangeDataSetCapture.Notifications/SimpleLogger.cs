@@ -2,9 +2,9 @@
 using Common.Logging;
 using R.ChangeDataSetCapture.Interfaces;
 
-namespace R.ChangeDataSetCapture.Notifications
+namespace R.ChangeDataSetCapture.NotificationStrategy
 {
-    public class SimpleLogger : INotifier
+    public class SimpleLogger : INotificationStrategy
     {
         private readonly ILog _log;
 

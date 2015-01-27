@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22E493D6-F970-4F40-A34E-0CAD549A0288}</ProjectGuid>
+    <ProjectGuid>{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>R.ChangeDataSetCapture.Interfaces</RootNamespace>
-    <AssemblyName>R.ChangeDataSetCapture.Interfaces</AssemblyName>
+    <RootNamespace>R.ChangeDataSetCapture.IntegrationTests</RootNamespace>
+    <AssemblyName>R.ChangeDataSetCapture.IntegrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,14 +48,26 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="xunit">
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\ChangeDetectionApproachType.cs" />
-    <Compile Include="IChangeDetectionApproach.cs" />
-    <Compile Include="IConfiguration.cs" />
-    <Compile Include="INotifier.cs" />
-    <Compile Include="IPersistenceStore.cs" />
+    <Compile Include="ApplicationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.DataSetChangeDetection.Strategies.Interfaces.csproj">
+      <Project>{22e493d6-f970-4f40-a34e-0cad549a0288}</Project>
+      <Name>R.DataSetChangeDetection.Strategies.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R.ChangeDataSetCapture\R.DataSetChangeDetection.Strategies.csproj">
+      <Project>{d5460ee3-35ee-4d10-b4c6-242d5a1a8d7f}</Project>
+      <Name>R.DataSetChangeDetection.Strategies</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

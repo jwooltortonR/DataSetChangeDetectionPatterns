@@ -1,11 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
-namespace R.ChangeDataSetCapture.Interfaces
+namespace R.DataSetChangeDetection.Strategies.Interfaces
 {
-    public interface IPersistenceStore
+    public interface IPersistenceStore<T>
     {
-        void Insert(string key, string guid);
-        void Update(string key, string guid);
-        IDictionary<string, string> FindByKey(string key);
+        T Insert(string collection, T entity);
+        T Update(string collection, T entity);
+        void Delete(string collection, Expression<Func<T, bool>> expression);
+
+        T FindOne(string collection, Expression<Func<T, bool>> expression);
+        IEnumerable<T> Find(string collection, Expression<Func<T, bool>> predicate);
     }
 }

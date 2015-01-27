@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture", "R.ChangeDataSetCapture\R.ChangeDataSetCapture.csproj", "{D5460EE3-35EE-4D10-B4C6-242D5A1A8D7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.DataSetChangeDetection.Strategies", "R.ChangeDataSetCapture\R.DataSetChangeDetection.Strategies.csproj", "{D5460EE3-35EE-4D10-B4C6-242D5A1A8D7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.Interfaces", "R.ChangeDataSetCapture.Interfaces\R.ChangeDataSetCapture.Interfaces.csproj", "{22E493D6-F970-4F40-A34E-0CAD549A0288}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.DataSetChangeDetection.Strategies.Interfaces", "R.ChangeDataSetCapture.Interfaces\R.DataSetChangeDetection.Strategies.Interfaces.csproj", "{22E493D6-F970-4F40-A34E-0CAD549A0288}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4E5D9EF0-C52F-4A8A-B84E-FC47057A225C}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,15 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4E5D9E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.ChangeDetectionApproach", "R.ChangeDataSetCapture.ChangeDetectionApproach\R.ChangeDataSetCapture.ChangeDetectionApproach.csproj", "{0A58B78B-5782-4FEF-B652-66288531C23B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3BC71A18-4483-47B7-B579-FFCB10E74AAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.UnitTests", "R.ChangeDataSetCapture.UnitTests\R.ChangeDataSetCapture.UnitTests.csproj", "{695E1A5E-CA7C-49AA-A228-D939F6118C50}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.IntegrationTests", "R.ChangeDataSetCapture.IntegrationTests\R.ChangeDataSetCapture.IntegrationTests.csproj", "{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.ChangeDataSetCapture.NotificationStrategy", "R.ChangeDataSetCapture.Notifications\R.ChangeDataSetCapture.NotificationStrategy.csproj", "{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.DataSetChangeDetection.Strategies.UnitTests", "R.ChangeDataSetCapture.UnitTests\R.DataSetChangeDetection.Strategies.UnitTests.csproj", "{695E1A5E-CA7C-49AA-A228-D939F6118C50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,28 +30,15 @@ Global
 		{22E493D6-F970-4F40-A34E-0CAD549A0288}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E493D6-F970-4F40-A34E-0CAD549A0288}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E493D6-F970-4F40-A34E-0CAD549A0288}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A58B78B-5782-4FEF-B652-66288531C23B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A58B78B-5782-4FEF-B652-66288531C23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A58B78B-5782-4FEF-B652-66288531C23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A58B78B-5782-4FEF-B652-66288531C23B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{695E1A5E-CA7C-49AA-A228-D939F6118C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{695E1A5E-CA7C-49AA-A228-D939F6118C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{695E1A5E-CA7C-49AA-A228-D939F6118C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{695E1A5E-CA7C-49AA-A228-D939F6118C50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20EAC8ED-F6DF-402A-BBF1-FF04F1195D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{695E1A5E-CA7C-49AA-A228-D939F6118C50} = {3BC71A18-4483-47B7-B579-FFCB10E74AAB}
-		{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB} = {3BC71A18-4483-47B7-B579-FFCB10E74AAB}
 	EndGlobalSection
 EndGlobal

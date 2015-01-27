@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EF7FEC75-2384-4CCA-BA17-786D1DFEF9DB}</ProjectGuid>
+    <ProjectGuid>{695E1A5E-CA7C-49AA-A228-D939F6118C50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>R.ChangeDataSetCapture.IntegrationTests</RootNamespace>
-    <AssemblyName>R.ChangeDataSetCapture.IntegrationTests</AssemblyName>
+    <RootNamespace>R.DataSetChangeDetection.Strategies.UnitTests</RootNamespace>
+    <AssemblyName>R.DataSetChangeDetection.Strategies.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -53,20 +53,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationTest.cs" />
+    <Compile Include="ApproachTests\BruteForceColumnHashTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.ChangeDataSetCapture.Interfaces.csproj">
+    <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.DataSetChangeDetection.Strategies.Interfaces.csproj">
       <Project>{22e493d6-f970-4f40-a34e-0cad549a0288}</Project>
-      <Name>R.ChangeDataSetCapture.Interfaces</Name>
+      <Name>R.DataSetChangeDetection.Strategies.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\R.ChangeDataSetCapture\R.ChangeDataSetCapture.csproj">
+    <ProjectReference Include="..\R.ChangeDataSetCapture\R.DataSetChangeDetection.Strategies.csproj">
       <Project>{d5460ee3-35ee-4d10-b4c6-242d5a1a8d7f}</Project>
-      <Name>R.ChangeDataSetCapture</Name>
+      <Name>R.DataSetChangeDetection.Strategies</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

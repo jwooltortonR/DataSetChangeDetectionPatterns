@@ -1,8 +1,8 @@
 ﻿using System.Data;
 
-namespace R.ChangeDataSetCapture.Interfaces
+namespace R.DataSetChangeDetection.Strategies.Interfaces
 {
-    public interface INotifier
+    public interface INotificationStrategy
     {
         void Insert(DataRow dataRow);
         void Amend(DataRow dataRow);
