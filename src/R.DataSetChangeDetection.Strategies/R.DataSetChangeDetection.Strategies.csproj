@@ -57,7 +57,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\R.ChangeDataSetCapture.Interfaces\R.DataSetChangeDetection.Strategies.Interfaces.csproj">
+    <ProjectReference Include="..\R.DataSetChangeDetection.Strategies.Interfaces\R.DataSetChangeDetection.Strategies.Interfaces.csproj">
       <Project>{22e493d6-f970-4f40-a34e-0cad549a0288}</Project>
       <Name>R.DataSetChangeDetection.Strategies.Interfaces</Name>
     </ProjectReference>
