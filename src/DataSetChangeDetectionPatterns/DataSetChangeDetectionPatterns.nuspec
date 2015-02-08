@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>R.DataSetChangeDetection.Strategies</id>
+    <id>DataSetChangeDetectionPatterns</id>
     <version>0.1.0</version>
-    <title>R.DataSetChangeDetection.Strategies</title>
+    <title>DataSetChangeDetectionPatterns</title>
     <authors>Jamie Wooltorton</authors>
     <owners>Jamie Wooltorton</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A tool for identifying Deltas in DataSets</description>
     <language>en-GB</language>
-    <projectUrl>https://github.com/R.ChangeDataSetCapture</projectUrl>
-    <copyright>Copyright 2014 R.DataSetChangeDetection.Strategies All rights reserved</copyright>
-    <tags>DataSet, ChangeDetection, Deltas, R.DataSetChangeDetection.Strategies</tags>
+    <projectUrl>https://github.com/DataSetChangeDetectionPatterns</projectUrl>
+    <copyright>Copyright 2014 DataSetChangeDetectionPatterns All rights reserved</copyright>
+    <tags>DataSet, ChangeDetection, Deltas, DataSetChangeDetectionPatterns</tags>
     <dependencies>
       
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\R.DataSetChangeDetection.Strategies.dll" target="lib\net40\R.DataSetChangeDetection.Strategies.dll" />
-    <file src="bin\Release\R.DataSetChangeDetection.Strategies.Interfaces.dll" target="lib\net40\R.DataSetChangeDetection.Strategies.Interfaces.dll" />    
+    <file src="bin\Release\DataSetChangeDetectionPatterns.dll" target="lib\net40\DataSetChangeDetectionPatterns.dll" />
+    <file src="bin\Release\DataSetChangeDetectionPatterns.Interfaces.dll" target="lib\net40\DataSetChangeDetectionPatterns.Interfaces.dll" />    
   </files>
 </package>
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
+using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
 using DataSetChangeDetectionPatterns.Interfaces.Contracts;
-using R.DataSetChangeDetection.Strategies.Entities;
 
 namespace DataSetChangeDetectionPatterns
 {

@@ -2,9 +2,9 @@
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
 using DataSetChangeDetectionPatterns.Interfaces.Contracts;
-using R.DataSetChangeDetection.Strategies.Entities;
 
 namespace DataSetChangeDetectionPatterns
 {
@@ -14,7 +14,7 @@ namespace DataSetChangeDetectionPatterns
         private readonly INotificationStrategy _notificationStrategy;        
 
         public ChangingStatusStrategy(IPersistenceStore<ChangingStatusContractEntity> persistenceStore, 
-                                    INotificationStrategy notificationStrategy                                                                                   
+                                     INotificationStrategy notificationStrategy                                                                                   
             )
         {            
             _persistenceStore = persistenceStore;

@@ -1,7 +1,7 @@
 ﻿using System;
 using DataSetChangeDetectionPatterns.Interfaces.Entities;
 
-namespace R.DataSetChangeDetection.Strategies.Entities
+namespace DataSetChangeDetectionPatterns.Entities
 {
     public class RawData : IRawData
     {

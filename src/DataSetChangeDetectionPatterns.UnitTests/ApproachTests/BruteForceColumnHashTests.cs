@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using DataSetChangeDetectionPatterns.Contracts;
+using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
 using Moq;
-using R.DataSetChangeDetection.Strategies.Entities;
 using Xunit;
 
 namespace DataSetChangeDetectionPatterns.UnitTests.ApproachTests

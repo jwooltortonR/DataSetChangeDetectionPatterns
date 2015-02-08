@@ -52,7 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataSetChangeDetectionPatterns.nuspec" />
+    <None Include="DataSetChangeDetectionPatterns.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataSetChangeDetectionPatterns.Interfaces\DataSetChangeDetectionPatterns.Interfaces.csproj">
