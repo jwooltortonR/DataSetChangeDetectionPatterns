@@ -1,5 +1,5 @@
 # DataSet Change Detection Patterns
-An implementation for the various patterns for identifying changes in DataSets.   
+An implementation for various patterns for identifying changes in DataSets.   
 
 ##Patterns:
 * ChangingStatus
