@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
+using DataSetChangeDetectionPatterns.Interfaces.Persistence;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 

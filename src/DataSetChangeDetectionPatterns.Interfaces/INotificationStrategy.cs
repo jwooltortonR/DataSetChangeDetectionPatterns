@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DataSetChangeDetectionPatterns.Interfaces
+namespace DataSetChangeDetectionPatterns.Interfaces.Strategies
 {
     public interface INotificationStrategy
     {

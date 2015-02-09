@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
@@ -6,7 +7,7 @@ using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
 using DataSetChangeDetectionPatterns.Interfaces.Strategies;
 
-namespace DataSetChangeDetectionPatterns
+namespace DataSetChangeDetectionPatterns.Strategies
 {
     public class ChangingStatusStrategy : IChangeDetectionStrategy
     {
@@ -16,6 +17,8 @@ namespace DataSetChangeDetectionPatterns
         {
             _config = config;            
         }
+
+   
 
         public bool Process(DataTable dataTable)
         {

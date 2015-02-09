@@ -21,14 +21,14 @@
         //    var parameters = new Dictionary<string, object>()
         //        {
         //            {"ChangeDetectionStrategy", "BruteForce"},
-        //            {"KeyColumnName", "ID_ITEM"},
+        //            {"TableKeyColumnName", "ID_ITEM"},
         //            {"HashColumnList", columList}
         //        };
         //    //Execute
         //    var settings = _settingsMapper.GetSettings("TestDataSet", parameters);
         //    //Tests
         //    Assert.Equal(ChangeDetectionApproachType.BruteForce, settings.ChangeDetectionApproachType);
-        //    Assert.Equal("ID_ITEM", settings.KeyColumnName);
+        //    Assert.Equal("ID_ITEM", settings.TableKeyColumnName);
         //    Assert.Equal(columList, settings.HashColumnList);
         //}
 
@@ -44,7 +44,7 @@
         //    var parameters = new Dictionary<string, object>()
         //        {
         //            {"ChangeDetectionStrategy", "BruteForce"},
-        //            {"KeyColumnName", "ID_ITEM"},
+        //            {"TableKeyColumnName", "ID_ITEM"},
         //            {"HashColumnList", columList}
         //        };
         //    //Execute
@@ -97,7 +97,7 @@
         //        };
         //    //Tests            
         //    var ex = Assert.Throws<Exception>(() => _settingsMapper.GetSettings("TestDataSet", parameters));
-        //    Assert.Equal(ex.Message, "[KeyColumnName] is missing.");
+        //    Assert.Equal(ex.Message, "[TableKeyColumnName] is missing.");
         //}
 
         //[Fact]
@@ -107,7 +107,7 @@
         //    var parameters = new Dictionary<string, object>()
         //        {
         //            {"ChangeDetectionStrategy", "BruteForce"},   
-        //            {"KeyColumnName", "ID_ITEM"},
+        //            {"TableKeyColumnName", "ID_ITEM"},
         //        };
         //    //Tests            
         //    var ex = Assert.Throws<Exception>(() => _settingsMapper.GetSettings("TestDataSet", parameters));
@@ -121,7 +121,7 @@
         //    var parameters = new Dictionary<string, object>()
         //        {
         //             {"ChangeDetectionStrategy", "BruteForce"},   
-        //             {"KeyColumnName", "ID_ITEM"},
+        //             {"TableKeyColumnName", "ID_ITEM"},
         //             {"HashColumnList", DateTime.Now}
         //        };
         //    //Tests            
@@ -141,14 +141,14 @@
         //    var parameters = new Dictionary<string, object>()
         //        {
         //             {"ChangeDetectionStrategy", "BruteForce"},   
-        //             {"KeyColumnName", "ID_ITEM"},
+        //             {"TableKeyColumnName", "ID_ITEM"},
         //             {"HashColumnList", "[\r\n  \"STATUS\"\r\n]"}
         //        };         
         //    //Execute
         //    var settings = _settingsMapper.GetSettings("TestDataSet", parameters);
         //    //Tests
         //    Assert.Equal(ChangeDetectionApproachType.BruteForce, settings.ChangeDetectionApproachType);
-        //    Assert.Equal("ID_ITEM", settings.KeyColumnName);
+        //    Assert.Equal("ID_ITEM", settings.TableKeyColumnName);
         //    Assert.Equal(columList, settings.HashColumnList);
         //}
 

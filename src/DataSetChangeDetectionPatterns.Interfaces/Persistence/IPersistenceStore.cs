@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace DataSetChangeDetectionPatterns.Interfaces
+namespace DataSetChangeDetectionPatterns.Interfaces.Persistence
 {
     public interface IPersistenceStore<T>
     {

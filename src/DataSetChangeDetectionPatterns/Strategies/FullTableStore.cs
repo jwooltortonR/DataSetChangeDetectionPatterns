@@ -3,24 +3,28 @@ using System.Data;
 using System.Linq;
 using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
-using DataSetChangeDetectionPatterns.Interfaces.Contracts;
 
-namespace DataSetChangeDetectionPatterns
+namespace DataSetChangeDetectionPatterns.Strategies
 {
-    public class FullTableStore : IChangeDetectionStrategy<IFullTableStoreContract>
+    public class FullTableStore //: IChangeDetectionStrategy<FullTableStoreContract>
     {
-        private IPersistenceStore<RawData> _persistenceStore;
-        private readonly INotificationStrategy _notificationStrategy;
-        
+        private readonly IChangingStatusConfiguration<RawData> _config;
 
-        public FullTableStore(IPersistenceStore<RawData> persistenceStore, 
-                              INotificationStrategy notificationStrategy)
+        private string configKeyExpression;
+        private string configCollectionName;
+
+        public FullTableStore()
         {
-            _persistenceStore = persistenceStore;
-            _notificationStrategy = notificationStrategy;        
+            
         }
 
-        public bool Process(DataTable dataTable, IFullTableStoreContract contract)
+        public FullTableStore(IChangingStatusConfiguration<RawData> config)
+        {
+            _config = config;
+        }
+
+
+        public bool Process(DataTable dataTable)
         {
             var start = DateTime.Now;
             
@@ -34,7 +38,7 @@ namespace DataSetChangeDetectionPatterns
             var dataColumn = new DataColumn
                 {
                     ColumnName = "Key",
-                    Expression = contract.KeyExpression,
+                    Expression = configKeyExpression,
                     DataType = Type.GetType("System.String")
                 };
             dataTable.Columns.Add(dataColumn);
@@ -42,7 +46,7 @@ namespace DataSetChangeDetectionPatterns
             foreach (DataRow dr in dataTable.Rows)
             {
                 var key = dr["key"].ToString();
-                var lookup = _persistenceStore.FindOne(contract.CollectionName, x=>x.Key == key);
+                var lookup = _config.PersistenceStore.FindOne(configCollectionName, x => x.Key == key);
 
                 if (lookup == null)
                 {
@@ -56,13 +60,13 @@ namespace DataSetChangeDetectionPatterns
                                 ValidFrom = start,
                                 ValidTo = DateTime.MaxValue
                             };
-                        _persistenceStore.Insert(contract.CollectionName, rawDataEntity);                          
+                        _config.PersistenceStore.Insert(configCollectionName, rawDataEntity);                          
                     }
-                    _notificationStrategy.Insert(dr);                      
+                    _config.NotificationStrategy.Insert(dr);                      
                 }
                 else
                 {
-                    var r1 = _persistenceStore.Find(contract.CollectionName, data => data.Key == key && data.ValidTo > start).ToList();
+                    var r1 = _config.PersistenceStore.Find(configCollectionName, data => data.Key == key && data.ValidTo > start).ToList();
 
                     foreach (DataColumn c in dataTable.Columns)
                     {
@@ -79,7 +83,7 @@ namespace DataSetChangeDetectionPatterns
                                     ValidFrom = start,
                                     ValidTo = DateTime.MaxValue
                                 };
-                            _persistenceStore.Insert(contract.CollectionName, rd);                                                        
+                            _config.PersistenceStore.Insert(configCollectionName, rd);                                                        
                         }
                         else if (r1.First(w => w.Name == name).Value != value)
                         {
@@ -95,10 +99,10 @@ namespace DataSetChangeDetectionPatterns
                                     ValidTo = DateTime.MaxValue
                                 };
 
-                            _persistenceStore.Update(contract.CollectionName, rd);
+                            _config.PersistenceStore.Update(configCollectionName, rd);
 
                         }
-                        _notificationStrategy.Amend(dr);
+                        _config.NotificationStrategy.Amend(dr);
                     }
                 }                
             }            

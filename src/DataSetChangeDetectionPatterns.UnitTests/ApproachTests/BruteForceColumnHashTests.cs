@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using DataSetChangeDetectionPatterns.Contracts;
 using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
+using DataSetChangeDetectionPatterns.Interfaces.Persistence;
+using DataSetChangeDetectionPatterns.Interfaces.Strategies;
+using DataSetChangeDetectionPatterns.Strategies;
 using Moq;
 using Xunit;
 
@@ -14,13 +16,15 @@ namespace DataSetChangeDetectionPatterns.UnitTests.ApproachTests
         private Mock<IPersistenceStore<ChangingStatusContractEntity>> _mockPersistenceStore;
         private Mock<INotificationStrategy> _mockNotifier;
 
+        private IChangingStatusConfiguration<ChangingStatusContractEntity> config;
+
         private ChangingStatusStrategy _changingStatusStrategy;
 
         private List<string> _hashColumnList;
 
         public BruteForceColumnHashTests()
         {
-            var collectionName = "Employee";
+            const string collectionName = "Employee";
             _hashColumnList = new List<string>()
                 {
                     "Status"
@@ -29,14 +33,17 @@ namespace DataSetChangeDetectionPatterns.UnitTests.ApproachTests
             _mockPersistenceStore = new Mock<IPersistenceStore<ChangingStatusContractEntity>>();
             _mockNotifier= new Mock<INotificationStrategy>();
 
-            //_changingStatusStrategy = new ChangingStatusStrategy(_mockPersistenceStore.Object, _mockNotifier.Object, "ID", _hashColumnList, collectionName);
-            var contract = new ChangingStatusContract()
-                {
-                    CollectionName = collectionName,
-                    ChangeColumns = _hashColumnList,
-                    KeyColumnName = "ID"
-                };
-            _changingStatusStrategy = new ChangingStatusStrategy(_mockPersistenceStore.Object, _mockNotifier.Object);
+            config = new ChangingStatusConfiguration<ChangingStatusContractEntity>
+            {
+                PersistenceStore = _mockPersistenceStore.Object,
+                NotificationStrategy = _mockNotifier.Object,
+                ColumnList = _hashColumnList,
+                PersistenceStoreCollectionName = collectionName,
+                TableKeyColumnName = "ID"
+            };
+
+
+            _changingStatusStrategy = new ChangingStatusStrategy(config);
 
 
         }

@@ -41,12 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangingStatusStrategy.cs" />
-    <Compile Include="FullTableStore.cs" />
-    <Compile Include="SaveDateModifiedDate.cs" />
-    <Compile Include="Contracts\ChangingStatusContract.cs" />
-    <Compile Include="Contracts\FullTableStoreContract.cs" />
-    <Compile Include="Contracts\SaveDateModifiedDateContract.cs" />
+    <Compile Include="ChangingStatusConfiguration.cs" />
+    <Compile Include="Strategies\ChangingStatusStrategy.cs" />
+    <Compile Include="Strategies\FullTableStore.cs" />
     <Compile Include="Entities\ChangingStatusContractEntity.cs" />
     <Compile Include="Entities\RawData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

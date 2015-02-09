@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Data;
+using DataSetChangeDetectionPatterns;
 using DataSetChangeDetectionPatterns.Entities;
 using DataSetChangeDetectionPatterns.Interfaces;
 using DataSetChangeDetectionPatterns.Interfaces.Contracts;
+using DataSetChangeDetectionPatterns.Interfaces.Persistence;
+using DataSetChangeDetectionPatterns.Interfaces.Strategies;
 
 namespace SimpleChangingStatus
 {
@@ -18,20 +21,21 @@ namespace SimpleChangingStatus
             //This Notifier simple writes to the Console.
             INotificationStrategy notificationStrategy = new SimpleNotificationStrategy();
 
-            //Setup the Strategy
-            var strategy = new DataSetChangeDetectionPatterns.ChangingStatusStrategy(persistanceStore,
-                notificationStrategy);                       
-
-            //Build the contract 
-            IChangingStatusContract contract = new DataSetChangeDetectionPatterns.Contracts.ChangingStatusContract()
+            var config = new ChangingStatusConfiguration<ChangingStatusContractEntity>()
             {
-                ChangeColumns = new[] {"Status"},
-                CollectionName = "StatusCollection",
-                KeyColumnName = "Status"
+                NotificationStrategy = notificationStrategy,
+                PersistenceStore = persistanceStore,
+                ColumnList =  new[] {"Status"},
+                PersistenceStoreCollectionName = "StatusCollection",
+               TableKeyColumnName = "ID"
             };
-                  
+
+
+            //Setup the Strategy            
+            var strategy = new ChangingStatusStrategy(config);                       
+
             //Execute
-            strategy.Process(GetDataTable(), contract);            
+            strategy.Process(GetDataTable());            
             
             Console.ReadLine();
             Console.WriteLine("Finished Simple Changing Status Strategy");

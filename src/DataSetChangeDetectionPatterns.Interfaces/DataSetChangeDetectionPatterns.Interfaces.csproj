@@ -41,14 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IChangingStatusContract.cs" />
-    <Compile Include="Contracts\IFullTableStoreContract.cs" />
-    <Compile Include="Contracts\ISaveDateModifiedDateContract.cs" />
     <Compile Include="Entities\IChangingStatusContractEntity.cs" />
     <Compile Include="Entities\IRawData.cs" />
-    <Compile Include="IChangeDetectionStrategy.cs" />
+    <Compile Include="IChangingStatusConfiguration.cs" />
+    <Compile Include="Strategies\IChangeDetectionStrategy.cs" />
     <Compile Include="INotificationStrategy.cs" />
-    <Compile Include="IPersistenceStore.cs" />
+    <Compile Include="Persistence\IPersistenceStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

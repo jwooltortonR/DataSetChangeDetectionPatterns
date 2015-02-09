@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using DataSetChangeDetectionPatterns.Interfaces;
+using DataSetChangeDetectionPatterns.Interfaces.Strategies;
 
 namespace SimpleChangingStatus
 {
@@ -23,7 +23,7 @@ namespace SimpleChangingStatus
 
         public void NoChange(DataRow dataRow)
         {
-            Console.WriteLine("Not Change to DataRow");
+            Console.WriteLine("No Change to DataRow");
         }
     }
 }
