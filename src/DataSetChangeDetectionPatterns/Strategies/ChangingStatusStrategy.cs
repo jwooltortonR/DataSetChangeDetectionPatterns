@@ -11,15 +11,13 @@ namespace DataSetChangeDetectionPatterns.Strategies
 {
     public class ChangingStatusStrategy : IChangeDetectionStrategy
     {
-        private readonly IChangingStatusConfiguration<ChangingStatusContractEntity> _config;
+        private readonly IChangingStatusConfiguration<ChangingStatusContractEntity, DataRow> _config;
 
-        public ChangingStatusStrategy(IChangingStatusConfiguration<ChangingStatusContractEntity> config)
+        public ChangingStatusStrategy(IChangingStatusConfiguration<ChangingStatusContractEntity, DataRow> config)
         {
             _config = config;            
         }
-
-   
-
+  
         public bool Process(DataTable dataTable)
         {
             foreach (DataRow dataRow in dataTable.Rows)

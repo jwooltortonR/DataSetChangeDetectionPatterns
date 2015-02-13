@@ -42,6 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangingStatusConfiguration.cs" />
+    <Compile Include="Entities\CurrentData.cs" />
+    <Compile Include="Entities\HistoricData.cs" />
+    <Compile Include="Entities\SourceData.cs" />
+    <Compile Include="Entities\SourceDataAmend.cs" />
+    <Compile Include="Entities\SourceDataNew.cs" />
+    <Compile Include="Entities\SourceDataStat.cs" />
     <Compile Include="Strategies\ChangingStatusStrategy.cs" />
     <Compile Include="Strategies\FullTableStore.cs" />
     <Compile Include="Entities\ChangingStatusContractEntity.cs" />

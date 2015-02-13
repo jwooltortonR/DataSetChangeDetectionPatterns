@@ -5,10 +5,10 @@ using DataSetChangeDetectionPatterns.Interfaces.Strategies;
 
 namespace DataSetChangeDetectionPatterns
 {
-    public class ChangingStatusConfiguration<T> : IChangingStatusConfiguration<T>       
+    public class ChangingStatusConfiguration<T, U> : IChangingStatusConfiguration<T, U>       
     {
         private IPersistenceStore<T> _persistenceStore;
-        private INotificationStrategy _notificationStrategy;
+        private INotificationStrategy<U> _notificationStrategy;
         private string _tableKeyColumnName;
         private string _persistenceStoreCollectionName = "StatusCollection";
         private IList<string> _hashColumnNames;
@@ -19,7 +19,7 @@ namespace DataSetChangeDetectionPatterns
             set { _persistenceStore = value; }
         }
 
-        public INotificationStrategy NotificationStrategy
+        public INotificationStrategy<U> NotificationStrategy
         {
             get { return _notificationStrategy; }
             set { _notificationStrategy = value; }

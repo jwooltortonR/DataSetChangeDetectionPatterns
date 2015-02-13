@@ -14,9 +14,9 @@ namespace DataSetChangeDetectionPatterns.UnitTests.ApproachTests
     public class BruteForceColumnHashTests
     {
         private Mock<IPersistenceStore<ChangingStatusContractEntity>> _mockPersistenceStore;
-        private Mock<INotificationStrategy> _mockNotifier;
+        private Mock<INotificationStrategy<DataRow>> _mockNotifier;
 
-        private IChangingStatusConfiguration<ChangingStatusContractEntity> config;
+        private IChangingStatusConfiguration<ChangingStatusContractEntity, DataRow> config;
 
         private ChangingStatusStrategy _changingStatusStrategy;
 
@@ -31,9 +31,9 @@ namespace DataSetChangeDetectionPatterns.UnitTests.ApproachTests
                 };
 
             _mockPersistenceStore = new Mock<IPersistenceStore<ChangingStatusContractEntity>>();
-            _mockNotifier= new Mock<INotificationStrategy>();
+            _mockNotifier = new Mock<INotificationStrategy<DataRow>>();
 
-            config = new ChangingStatusConfiguration<ChangingStatusContractEntity>
+            config = new ChangingStatusConfiguration<ChangingStatusContractEntity, DataRow>
             {
                 PersistenceStore = _mockPersistenceStore.Object,
                 NotificationStrategy = _mockNotifier.Object,

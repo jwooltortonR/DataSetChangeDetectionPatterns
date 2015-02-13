@@ -1,12 +1,10 @@
-﻿using System.Data;
-
-namespace DataSetChangeDetectionPatterns.Interfaces.Strategies
+﻿namespace DataSetChangeDetectionPatterns.Interfaces
 {
-    public interface INotificationStrategy
+    public interface INotificationStrategy<in T>
     {
-        void Insert(DataRow dataRow);
-        void Amend(DataRow dataRow);
-        void Cancel(DataRow dataRow);
-        void NoChange(DataRow dataRow);
+        void Insert(T document);
+        void Amend(T document);
+        void Cancel(T document);
+        void NoChange(T document);
     }
 }
